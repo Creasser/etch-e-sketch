@@ -40,3 +40,46 @@ const buttonsContainer = document.querySelector('.settings')
     buttonsContainer.appendChild(btnErase).classList.add('btn')
   }
   eraser()
+
+  function rgbColor () {
+    const boxs = container.querySelectorAll('.box')
+    btnRGB.textContent = 'Rainbow'
+    btnRGB.addEventListener('click' , () => {
+        boxs.forEach(box => box.addEventListener('mouseover', () => {
+            let R = Math.floor(Math.random() * 255)
+            let G = Math.floor(Math.random() * 255)
+            let B = Math.floor(Math.random() * 255)
+            box.style.background = `rgb(${R}, ${G}, ${B})`
+        }))
+    })
+    buttonsContainer.appendChild(btnRGB).classList.add('btn')
+  }
+  rgbColor()
+
+function reSet () {
+    const boxs = container.querySelectorAll('.box')
+    boxs.forEach(box => box.remove())
+}
+
+function reSize() {
+    btnSize.textContent = 'Grid Size'
+    btnSize.addEventListener('click', () => {
+        let user = prompt('What size do you want the grid to be?')
+        if(user === null || user < 1) {
+            reSet()
+            createDivs(16,16)
+            blackColor()
+            rgbColor()
+            eraser()
+        }
+        else{
+            reSet()
+            createDivs(user, user)
+            blackColor()
+            rgbColor()
+            eraser()
+        }
+    })
+    buttonsContainer.appendChild(btnSize).classList.add('btn')
+}
+reSize()
