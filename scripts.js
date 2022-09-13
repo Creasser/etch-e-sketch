@@ -3,6 +3,7 @@ const btnBlack = document.createElement('button')
 const btnRGB = document.createElement('button')
 const btnSize = document.createElement('button')
 const btnErase = document.createElement('button')
+const btnClear = document.createElement('button')
 const buttonsContainer = document.querySelector('.settings')
 
   function createDivs(col, rows) {
@@ -29,18 +30,6 @@ const buttonsContainer = document.querySelector('.settings')
   }
   blackColor()
 
-  function eraser () {
-    const boxs = container.querySelectorAll('.box')
-    btnErase.textContent = 'Eraser'
-    btnErase.addEventListener('click' , () => {
-        boxs.forEach(box => box.addEventListener('mouseover', () => {
-            box.style.background = 'lightgray' ;
-        }))
-    })
-    buttonsContainer.appendChild(btnErase).classList.add('btn')
-  }
-  eraser()
-
   function rgbColor () {
     const boxs = container.querySelectorAll('.box')
     btnRGB.textContent = 'Rainbow'
@@ -56,6 +45,19 @@ const buttonsContainer = document.querySelector('.settings')
   }
   rgbColor()
 
+  function eraser () {
+    const boxs = container.querySelectorAll('.box')
+    btnErase.textContent = 'Eraser'
+    btnErase.addEventListener('click' , () => {
+        boxs.forEach(box => box.addEventListener('mouseover', () => {
+            box.style.background = 'lightgray' ;
+        }))
+    })
+    buttonsContainer.appendChild(btnErase).classList.add('btn')
+  }
+  eraser()
+
+
 function reSet () {
     const boxs = container.querySelectorAll('.box')
     boxs.forEach(box => box.remove())
@@ -65,12 +67,13 @@ function reSize() {
     btnSize.textContent = 'Grid Size'
     btnSize.addEventListener('click', () => {
         let user = prompt('What size do you want the grid to be?')
-        if(user === null || user < 1) {
+        if(user === null || user < 1 || user > 100) {
             reSet()
             createDivs(16,16)
             blackColor()
             rgbColor()
             eraser()
+            buttonsContainer.appendChild(btnSize).classList.add('btn')
         }
         else{
             reSet()
@@ -78,6 +81,7 @@ function reSize() {
             blackColor()
             rgbColor()
             eraser()
+            buttonsContainer.appendChild(btnSize).classList.add('btn')
         }
     })
     buttonsContainer.appendChild(btnSize).classList.add('btn')
