@@ -2,6 +2,7 @@ const container = document.querySelector('.gridContainer')
 const btnBlack = document.createElement('button')
 const btnRGB = document.createElement('button')
 const btnSize = document.createElement('button')
+const btnErase = document.createElement('button')
 const buttonsContainer = document.querySelector('.settings')
 
   function createDivs(col, rows) {
@@ -27,3 +28,15 @@ const buttonsContainer = document.querySelector('.settings')
     buttonsContainer.appendChild(btnBlack).classList.add('btn')
   }
   blackColor()
+
+  function eraser () {
+    const boxs = container.querySelectorAll('.box')
+    btnErase.textContent = 'Eraser'
+    btnErase.addEventListener('click' , () => {
+        boxs.forEach(box => box.addEventListener('mouseover', () => {
+            box.style.background = 'lightgray' ;
+        }))
+    })
+    buttonsContainer.appendChild(btnErase).classList.add('btn')
+  }
+  eraser()
