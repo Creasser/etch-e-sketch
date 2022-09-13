@@ -5,10 +5,12 @@
 }
 
 .gridContainer {
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
+    display: grid;
     background-color: lightgray;
     border: solid black;
+  
 }
 
 .mainContainer {
@@ -28,4 +30,11 @@ button {
     padding: 10px 45px 10px 45px;
     margin-right: 20px;
     font-size: 20px;
+    outline: none;
+    border: solid black 1px;
+}
+button:focus {
+    background-color: grey;
+    color: white;
+   
 }
