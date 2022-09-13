@@ -1,0 +1,31 @@
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.gridContainer {
+    height: 500px;
+    width: 500px;
+    background-color: lightgray;
+    border: solid black;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-evenly;
+}
+
+button {
+    padding: 10px 45px 10px 45px;
+    margin-right: 20px;
+    font-size: 20px;
+}
