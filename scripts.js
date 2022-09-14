@@ -15,7 +15,6 @@ const buttonsContainer = document.querySelector('.settings')
         container.appendChild(div).classList.add('box')
     }
   }
-
   createDivs(16,16)
 
   function blackColor () {
@@ -56,6 +55,16 @@ const buttonsContainer = document.querySelector('.settings')
     buttonsContainer.appendChild(btnErase).classList.add('btn')
   }
   eraser()
+  
+  function clearGrid () {
+    const boxs = container.querySelectorAll('.box')
+    btnClear.textContent = 'Clear Grid'
+    btnClear.addEventListener('click' , () => {
+        boxs.forEach(box => box.style.background = 'lightgray')
+    })
+    buttonsContainer.appendChild(btnClear).classList.add('btn')
+  }
+  clearGrid()
 
 
 function reSet () {
@@ -66,13 +75,14 @@ function reSet () {
 function reSize() {
     btnSize.textContent = 'Grid Size'
     btnSize.addEventListener('click', () => {
-        let user = prompt('What size do you want the grid to be?')
+        let user = prompt('Choose a grid size between 1 and 100!')
         if(user === null || user < 1 || user > 100) {
             reSet()
             createDivs(16,16)
             blackColor()
             rgbColor()
             eraser()
+            clearGrid()
             buttonsContainer.appendChild(btnSize).classList.add('btn')
         }
         else{
@@ -81,6 +91,7 @@ function reSize() {
             blackColor()
             rgbColor()
             eraser()
+            clearGrid()
             buttonsContainer.appendChild(btnSize).classList.add('btn')
         }
     })
