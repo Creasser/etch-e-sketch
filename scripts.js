@@ -65,8 +65,7 @@ const buttonsContainer = document.querySelector('.settings')
     buttonsContainer.appendChild(btnClear).classList.add('btn')
   }
   clearGrid()
-
-
+  
 function reSet () {
     const boxs = container.querySelectorAll('.box')
     boxs.forEach(box => box.remove())
